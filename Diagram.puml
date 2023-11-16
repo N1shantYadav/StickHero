@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class User {
+  - score: int
+  - cherries: int
+  + saveGame(score: int, cherries: int): void
+  + getSavedGames(): ArrayList<User>
+  + getScore(): int
+  + setScore(score: int): void
+  + getCherries(): int
+  + setCherries(cherries: int): void
+  + restartGame(): void
+}
+
+interface GameFeatures {
+  + restartGame(): void
+}
+
+class Stick {
+  - length: double
+  + getLength(): double
+  + setLength(length: double): void
+}
+
+class Pillar {
+  - width: double
+  + getWidth(): double
+  + setWidth(width: double): void
+}
+
+User --|> GameFeatures
+Stick -- Pillar : "1" -- "1"
+
+@enduml
